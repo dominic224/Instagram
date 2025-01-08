@@ -1,10 +1,10 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-export default function Tabs() {
+export default function CreatePost() {
   return (
     <View>
-      <Text>Feed</Text>
+      <Text>Create post</Text>
     </View>
   );
 }
