@@ -1,7 +1,8 @@
-import { View, Text, Image, TextInput, Pressable } from "react-native";
-import React, { useEffect, useState } from "react";
 import * as ImagePicker from "expo-image-picker";
+import React, { useEffect, useState } from "react";
+import { Image, Text, TextInput, View } from "react-native";
 import Button from "~/src/components/Button";
+import { uploadImage } from "~/src/lib/cloudinary";
 
 export default function CreatePost() {
   const [caption, setCaption] = useState<string>("");
@@ -19,12 +20,20 @@ export default function CreatePost() {
       mediaTypes: ["images", "videos"],
       allowsEditing: true,
       aspect: [4, 3],
-      quality: 1,
+      quality: 0.5,
     });
 
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
+  };
+
+  const createPost = async () => {
+    if (!image) {
+      return;
+    }
+
+    const response = await uploadImage(image);
   };
 
   return (
@@ -52,7 +61,7 @@ export default function CreatePost() {
       />
 
       <View className="mt-auto w-full">
-        <Button title="Share" />
+        <Button title="Share" onPress={createPost} />
       </View>
     </View>
   );
