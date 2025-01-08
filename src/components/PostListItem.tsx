@@ -2,10 +2,20 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { AntDesign, Ionicons, Feather } from "@expo/vector-icons";
 
-export default function PostListItem({ post }) {
+type Props = {
+  post: {
+    user: {
+      username: string;
+      image_url: string;
+    };
+    image_url: string;
+  };
+};
+
+export default function PostListItem({ post }: Props) {
   return (
     <View className="bg-white">
-      <View className="flex-row items-center p-3 gap-2">
+      <View className="p-3 flex-row items-center gap-2">
         <Image
           source={{ uri: post.user.image_url }}
           className="w-12 aspect-square rounded-full"
