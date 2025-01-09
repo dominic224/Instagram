@@ -10,7 +10,7 @@ export type PostType = {
       image_url: string;
       username: string;
     };
-    media_type: "image" | "video";
+    media_type: string;
     my_likes: any[];
     likes: any[];
   };

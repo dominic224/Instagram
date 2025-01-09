@@ -92,7 +92,7 @@ export default function PostListItem({ post }: PostType) {
         <Feather name="bookmark" size={20} className="ml-auto" />
       </View>
 
-      <View className="px-3 gap-1">
+      <View className="p-3 gap-1">
         <Text className="font-semibold">
           {post.likes?.[0]?.count || 0} likes
         </Text>
