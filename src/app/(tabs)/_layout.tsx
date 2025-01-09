@@ -3,6 +3,7 @@ import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useAuth } from "~/src/providers/AuthProvider";
 import NotificationProvider from "~/src/providers/NotificationProvider";
+import Header from "~/src/components/Header";
 
 export default function TabsLayout() {
   const { isAuthenticated } = useAuth();
@@ -21,9 +22,18 @@ export default function TabsLayout() {
         <Tabs.Screen
           name="index"
           options={{
-            headerTitle: "For you",
+            headerTitle: (props) => <Header />,
             tabBarIcon: ({ color }) => (
               <FontAwesome name="home" size={26} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="search"
+          options={{
+            headerTitle: "Search",
+            tabBarIcon: ({ color }) => (
+              <FontAwesome name="search" size={26} color={color} />
             ),
           }}
         />
@@ -33,6 +43,15 @@ export default function TabsLayout() {
             headerTitle: "Create post",
             tabBarIcon: ({ color }) => (
               <FontAwesome name="plus-square-o" size={26} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="favorite"
+          options={{
+            headerTitle: "Favorite",
+            tabBarIcon: ({ color }) => (
+              <FontAwesome name="heart-o" size={26} color={color} />
             ),
           }}
         />
