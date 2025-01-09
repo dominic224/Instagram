@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Alert,
-  StyleSheet,
-  View,
-  AppState,
-  TextInput,
-  Image,
-} from "react-native";
-import Button from "~/src/components/Button";
+import { Alert, AppState, Image, View } from "react-native";
 import { supabase } from "~/src/lib/supabase";
 import { images } from "~/src/utils/images";
 

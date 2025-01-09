@@ -29,7 +29,9 @@
     "react-native-web": "~0.19.13",
     "tailwindcss": "^3.4.17",
     "expo-device": "~7.0.1",
-    "expo-notifications": "~0.29.11"
+    "expo-notifications": "~0.29.11",
+    "react-native-gesture-handler": "~2.20.2",
+    "@gorhom/bottom-sheet": "^5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
