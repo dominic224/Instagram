@@ -1,29 +1,29 @@
 import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
 import { AdvancedImage } from "cloudinary-react-native";
 import React, { useEffect, useState } from "react";
-import { Text, useWindowDimensions, View } from "react-native";
+import { Text, View } from "react-native";
 
 import { FocusOn } from "@cloudinary/transformation-builder-sdk/qualifiers/focusOn";
 import { focusOn } from "@cloudinary/transformation-builder-sdk/qualifiers/gravity";
 import { thumbnail } from "@cloudinary/url-gen/actions/resize";
 import { cld } from "~/src/lib/cloudinary";
-import PostContent from "./PostContent";
-import { PostType } from "../type/PostType";
-import { useAuth } from "../providers/AuthProvider";
 import { supabase } from "../lib/supabase";
+import { useAuth } from "../providers/AuthProvider";
+import { PostType } from "../type/PostType";
 import { sendLikeNotification } from "../utils/notification";
+import PostContent from "./PostContent";
 
 export default function PostListItem({ post }: PostType) {
   const [isLiked, setIsLiked] = useState(false);
   const [likeRecord, setLikeRecord] = useState<{ id: string } | null>(null);
   const { user } = useAuth();
 
-  // useEffect(() => {
-  //   if (post.my_likes.length > 0) {
-  //     setLikeRecord(post.my_likes[0]);
-  //     setIsLiked(true);
-  //   }
-  // }, [post.my_likes]);
+  useEffect(() => {
+    if (post.my_likes.length > 0) {
+      setLikeRecord(post.my_likes[0]);
+      setIsLiked(true);
+    }
+  }, [post.my_likes]);
 
   useEffect(() => {
     if (isLiked) {

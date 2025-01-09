@@ -5,23 +5,23 @@ import PostListItem from "~/src/components/PostListItem";
 import { supabase } from "~/src/lib/supabase";
 
 export default function FeedScreen() {
-  // const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<any[]>([]);
 
-  // useEffect(() => {
-  //   fetchPost();
-  // }, []);
+  useEffect(() => {
+    fetchPost();
+  }, []);
 
-  // const fetchPost = async () => {
-  //   let { data, error } = await supabase
-  //     .from("posts")
-  //     .select("*, user:profiles(*)");
-  //   if (error) {
-  //     Alert.alert("Something went wrong");
-  //   }
-  //   if (data) {
-  //     setPosts(data);
-  //   }
-  // };
+  const fetchPost = async () => {
+    let { data, error } = await supabase
+      .from("posts")
+      .select("*, user:profiles(*)");
+    if (error) {
+      Alert.alert("Something went wrong");
+    }
+    if (data) {
+      setPosts(data);
+    }
+  };
 
   return (
     <FlatList
