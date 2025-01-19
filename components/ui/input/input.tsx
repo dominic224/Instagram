@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderColor: "#e1e1e1",
-    width: "90%",
+    width: "100%",
     height: 50,
     borderRadius: 5,
     alignItems: "center",

@@ -58,14 +58,16 @@ export default function Auth() {
   }
 
   return (
-    <View className="flex flex-1 flex-col items-center justify-center bg-white">
-      <Image source={images.logo} style={styles.logo} resizeMode="contain" />
-      <Image source={images.avatar} style={styles.avt} />
-      <Text style={styles.name}>jacob_w</Text>
-      <Button label="Log in" />
-      <Link href={{ pathname: "details" }} style={{ marginTop: 20 }}>
-        <Text style={styles.switchAcc}>Switch accounts</Text>
-      </Link>
+    <View style={styles.container}>
+      <View style={styles.content}>
+        <Image source={images.logo} style={styles.logo} resizeMode="contain" />
+        <Image source={images.avatar} style={styles.avt} />
+        <Text style={styles.name}>jacob_w</Text>
+        <Button label="Log in" style={{ marginTop: 15 }} />
+        <Link href={{ pathname: "details" }} style={{ marginTop: 20 }}>
+          <Text style={styles.switchAcc}>Switch accounts</Text>
+        </Link>
+      </View>
       <View style={styles.footer}>
         <Text style={styles.footerTxt}>
           Don't have an account?{" "}
@@ -77,6 +79,17 @@ export default function Auth() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#fff",
+  },
+  content: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 20,
+  },
   avt: {
     width: 85,
     height: 85,

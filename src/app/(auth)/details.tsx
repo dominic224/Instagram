@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
+import Button from "~/components/ui/button/button";
 import Input from "~/components/ui/input/input";
 import { images } from "~/src/utils/images";
 
@@ -35,32 +36,40 @@ export default function Details() {
       keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
       style={styles.container}
     >
-      <Image source={images.logo} style={styles.logo} resizeMode="contain" />
-      <View style={styles.formContainer}>
-        <Input
-          value={username}
-          onChangeText={setUsername}
-          placeholder="Username"
-          error={errors.username}
-        />
-        <Input
-          value={password}
-          onChangeText={setPassword}
-          placeholder="Password"
-          error={errors.password}
-        />
+      <View style={styles.content}>
+        <Image source={images.logo} style={styles.logo} resizeMode="contain" />
+        <View style={styles.formContainer}>
+          <Input
+            value={username}
+            onChangeText={setUsername}
+            placeholder="Username"
+            error={errors.username}
+          />
+          <Input
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Password"
+            error={errors.password}
+          />
+        </View>
+        <Text style={styles.forgotPassword}>Forgot password?</Text>
+        <Button label="Log in" style={{ marginTop: 20 }} />
       </View>
-      <Text style={styles.forgotPassword}>Forgot password?</Text>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  content: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  container: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
   },
   logo: {
     width: 182,
@@ -73,8 +82,10 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   forgotPassword: {
-    marginTop: 10,
+    marginTop: 15,
     color: "#3797EF",
-    textAlign: "right",
+    alignSelf: "flex-end",
+    fontWeight: "500",
+    fontSize: 12,
   },
 });
