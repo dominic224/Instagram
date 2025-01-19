@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import React, { useState } from "react";
 import {
   Alert,
@@ -8,6 +9,7 @@ import {
   Text,
   View,
 } from "react-native";
+import Button from "~/components/ui/button/button";
 import { supabase } from "~/src/lib/supabase";
 import { images } from "~/src/utils/images";
 
@@ -57,13 +59,13 @@ export default function Auth() {
 
   return (
     <View className="flex flex-1 flex-col items-center justify-center bg-white">
-      <Image source={images.logo} className="w-[182] h-[49]" />
+      <Image source={images.logo} style={styles.logo} resizeMode="contain" />
       <Image source={images.avatar} style={styles.avt} />
       <Text style={styles.name}>jacob_w</Text>
-      <Pressable style={styles.button}>
-        <Text style={styles.login}>Log in</Text>
-      </Pressable>
-      <Text style={styles.switchAcc}>Switch accounts</Text>
+      <Button label="Log in" />
+      <Link href={{ pathname: "details" }} style={{ marginTop: 20 }}>
+        <Text style={styles.switchAcc}>Switch accounts</Text>
+      </Link>
       <View style={styles.footer}>
         <Text style={styles.footerTxt}>
           Don't have an account?{" "}
@@ -86,24 +88,10 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: 10,
   },
-  button: {
-    backgroundColor: "#3797EF",
-    width: "85%",
-    height: 50,
-    borderRadius: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 10,
-  },
-  login: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "600",
-  },
+
   switchAcc: {
     fontSize: 14,
     color: "#3797EF",
-    marginTop: 30,
     fontWeight: "500",
   },
   footer: {
@@ -120,5 +108,9 @@ const styles = StyleSheet.create({
   footerTxt: {
     fontSize: 12,
     color: "gray",
+  },
+  logo: {
+    width: 182,
+    height: 49,
   },
 });

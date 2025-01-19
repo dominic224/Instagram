@@ -1,6 +1,5 @@
-import { View, Text } from "react-native";
-import React from "react";
 import { Redirect, Stack } from "expo-router";
+import React from "react";
 import { useAuth } from "~/src/providers/AuthProvider";
 
 export default function AuthLayout() {
@@ -15,6 +14,9 @@ export default function AuthLayout() {
       screenOptions={{
         headerShown: false,
       }}
-    />
+    >
+      <Stack.Screen name="index" options={{}} />
+      <Stack.Screen name="details" options={{}} />
+    </Stack>
   );
 }
