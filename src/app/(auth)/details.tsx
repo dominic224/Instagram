@@ -30,6 +30,11 @@ export default function Details() {
     return Object.keys(errors).length === 0;
   };
 
+  const handleSubmit = () => {
+    if (validateForm()) {
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       behavior="padding"
@@ -53,7 +58,11 @@ export default function Details() {
           />
         </View>
         <Text style={styles.forgotPassword}>Forgot password?</Text>
-        <Button label="Log in" style={{ marginTop: 20 }} />
+        <Button
+          label="Log in"
+          style={{ marginTop: 20 }}
+          onPress={handleSubmit}
+        />
       </View>
     </KeyboardAvoidingView>
   );

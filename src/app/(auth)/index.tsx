@@ -1,14 +1,6 @@
 import { Link } from "expo-router";
 import React, { useState } from "react";
-import {
-  Alert,
-  AppState,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Alert, AppState, Image, StyleSheet, Text, View } from "react-native";
 import Button from "~/components/ui/button/button";
 import { supabase } from "~/src/lib/supabase";
 import { images } from "~/src/utils/images";

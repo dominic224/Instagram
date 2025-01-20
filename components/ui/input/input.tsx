@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TextInput } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 
 interface Props {
   value: string;
@@ -17,16 +17,19 @@ export default function Input({
   error,
 }: Props) {
   return (
-    <>
+    <View style={{ width: "100%" }}>
       <TextInput
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
         placeholderTextColor={placeholderTextColor}
-        style={[styles.input, error && { borderColor: "red" }]}
+        style={[
+          styles.input,
+          error && { borderColor: "red", borderWidth: 1.5 },
+        ]}
       />
       {error && <Text style={styles.error}>{error}</Text>}
-    </>
+    </View>
   );
 }
 
